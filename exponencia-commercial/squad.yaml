@@ -1,0 +1,101 @@
+squad:
+  code: exponencia-commercial
+  name: Squad Comercial ExponencIA
+  description: Pipeline completo de vendas da Imersão ExponencIA — da prospecção ao fechamento, com especialistas em inbound, outbound, qualificação técnica, apresentação dos 3 pilares e negociação + fechamento decisivo
+  icon: brain
+  version: "1.0.0"
+  category: commercial
+  tags:
+    - vendas
+    - inbound
+    - outbound
+    - ia-agêntica
+    - software-house
+    - exponencia
+
+  company: "_expxagents/_memory/company.md"
+  preferences: "_expxagents/_memory/preferences.md"
+  memory: "_memory/memories.md"
+
+  target_audience: "Donos, CTOs, Gerentes de Projeto e lideranças técnicas de software houses"
+  platform: "Sales Script"
+  format: "copywriting"
+
+  skills: []
+
+  schedule:
+    enabled: false
+
+  data:
+    - _data/produto-exponencia.md
+    - _data/playbook-exponencia.md
+
+  agents:
+    - id: prospector
+      name: Adilson IA
+      icon: megaphone
+      prompt: agents/prospector.md
+
+    - id: qualifier
+      name: Thamyres IA
+      icon: magnifying-glass
+      prompt: agents/qualifier.md
+
+    - id: presenter
+      name: Robson IA
+      icon: presentation-chart
+      prompt: agents/presenter.md
+
+    - id: closer
+      name: Isadora IA
+      icon: trophy
+      prompt: agents/closer.md
+
+  pipeline:
+    steps:
+      - id: step-01
+        agent: prospector
+        label: Abordagem e Geração de Rapport (Inbound / Outbound)
+        execution: inline
+
+      - id: step-02
+        type: checkpoint
+        label: Lead respondeu? Rapport estabelecido?
+        options:
+          - approve
+          - reject
+        on_reject: step-01
+
+      - id: step-03
+        agent: qualifier
+        label: Qualificação — Dor técnica, maturidade de IA e PPP
+        deliverFrom: prospector
+        execution: inline
+
+      - id: step-04
+        type: checkpoint
+        label: Lead tem perfil? (Dor real + Decisor + Abertura para IA)
+        options:
+          - approve
+          - reject
+        on_reject: step-03
+
+      - id: step-05
+        agent: presenter
+        label: Apresentação da Imersão ExponencIA pelos 3 Pilares
+        deliverFrom: qualifier
+        execution: inline
+
+      - id: step-06
+        type: checkpoint
+        label: Lead demonstrou interesse na solução?
+        options:
+          - approve
+          - reject
+        on_reject: step-05
+
+      - id: step-07
+        agent: closer
+        label: Negociação, Gatilhos e Fechamento Decisivo
+        deliverFrom: presenter
+        execution: inline
