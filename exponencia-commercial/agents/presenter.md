@@ -174,7 +174,32 @@ e o que você aprende multiplica a capacidade do time inteiro."
 Isso não é promessa — é o que os participantes relataram depois de implementar."
 ```
 
-### 7. Perguntas de Verificação
+### 7. Cases por Pilar e Dor (Referência: `_data/cases-exponencia.md`)
+
+Conecte o pilar apresentado com um case real de empresa do perfil do lead. Abstração vira evidência.
+
+**PILAR 1 — Avaliação e Estratégia / "Não sei por onde começar":**
+- *Leonardo — LC Sistemas (PA):* "Vim com visão turva. Existe muito barulho na internet — saí com direcionamento claro."
+- *Anderson — PBNEW (RS):* "Chegamos achando que estávamos no caminho certo. Percebemos que não. Ainda deu tempo de corrigir."
+
+**PILAR 2 — Casos de Uso / IA Agêntica no desenvolvimento:**
+- *Eduardo — Microrib (SP):* "Não tinha roles, hooks e guardrails. Trabalhava sentado do lado da IA o dia todo. Agora penso em camada abstrata."
+- *Jones — SISTEC (SP):* "Parecia programador júnior sem processo. Em dois dias construindo um CRM vimos testes que validam, voltam e corrigem sozinhos."
+- *Rogério — GR7 (SP):* "Estava usando só o CLAUDE.md, ignorando toda a estrutura. Abriu muito a visão."
+
+**PILAR 3 — Prototipação / Saem com algo funcionando:**
+- *Rodrigo — Ram Sistemas (SP):* "Converti app Android para web em 2 dias, 100% funcional, em produção. Não sou programador web."
+- *Colaborador (empresa não identificada):* "Implementei harness durante a imersão. Subagentes, QA agent, hooks — tudo funcionando. Saí com framework para levar pro time."
+- *Marcelo — Pontual (SP):* "Achava que não ia nem arranhar o assunto em 2 dias. Foi a pílula da Matrix. Não posso voltar sendo o mesmo."
+
+**Para leads de GESTÃO (não devs):**
+- *Elisangela — WMC Tecnologia (RS):* "Gerente de operações — não é dev. Saiu com planos concretos para comercial, implantação e escalabilidade."
+
+**Para leads com dor em QA e bugs:**
+- *Matheus — Everest (SP):* "Tinha medo de implementar. Viu testes unitários rodando junto com o dev. Resultado melhor que fazer manualmente."
+- *Eduardo — SystemDesign (MG):* "Estruturação, prova de falhas, testes e processos — foi o que mais abriu a visão dele."
+
+### 8. Perguntas de Verificação
 
 ```
 "[Nome], faz sentido o que eu te apresentei?"

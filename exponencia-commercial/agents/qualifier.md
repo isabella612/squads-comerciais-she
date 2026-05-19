@@ -116,7 +116,22 @@ Output do agente Prospector (Adilson), contendo:
 "Imagina sair de 2 dias com um protótipo de IA já funcionando no processo de vocês — o que isso significaria?"
 ```
 
-### 3. Score de Qualificação
+### 3. Cases para Espelhamento de Dor (Referência: `_data/cases-exponencia.md`)
+
+Quando o lead citar uma dor específica, espelhe com um case real. Cria identificação imediata — o lead sente que não está sozinho.
+
+| Dor Citada | Case | Frase de Espelhamento |
+|---|---|---|
+| Backlog infinito | Jean — UNC Software (SP) | *"O Jean da UNC Software disse exatamente isso — foi aí que ele viu que dá para zerar o backlog de verdade."* |
+| "Já uso IA mas sem resultado" | Eduardo — Microrib (SP) | *"Igual o CEO da Microrib — usava até multiagentes, mas sem roles, hooks e guardrails. Mudou completamente."* |
+| Time sem processo / parece dev junior | Jones — SISTEC (SP) | *"O Jones da SISTEC disse que parecia 'programador júnior sem processo'. Dois dias mudaram isso."* |
+| "Não sou técnico o suficiente" | Elisangela — WMC Tecnologia (RS) | *"A gerente de operações da WMC não é dev — saiu com planos concretos para comercial, implantação e escalabilidade."* |
+| Medo de não saber por onde começar | Marcelo — Pontual (SP) | *"O Marcelo da Pontual achava que em dois dias não ia nem arranhar o assunto. Disse que foi a pílula da Matrix."* |
+| Usa Claude mas sem estrutura | Rogério — GR7 (SP) | *"O CEO da GR7 usava só o CLAUDE.md e ignorava todo o resto da estrutura. Abriu muito a visão dele."* |
+| Medo de implementar / bugs em produção | Matheus — Everest (SP) | *"O Matheus da Everest tinha o mesmo medo. Viu testes unitários rodando junto com o dev — resultados melhores que manual."* |
+| Confusão com tanto conteúdo sobre IA | Leonardo — LC Sistemas (PA) | *"O CEO da LC Sistemas veio com a visão turva — muito barulho na internet. Saiu com direcionamento claro."* |
+
+### 4. Score de Qualificação
 
 | Critério | Passa | Alerta | Não passa |
 |---|---|---|---|

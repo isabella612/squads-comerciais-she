@@ -157,6 +157,21 @@ quanto menor o time, mais o resultado aparece rápido.
 Se a IA faz QA e doc, seu time pequeno entrega como um time grande."
 ```
 
+#### REFORÇO COM CASE REAL (usar após responder qualquer objeção)
+
+Após tratar a objeção racionalmente, solidifique com um case real. Referência completa: `_data/cases-exponencia.md`
+
+| Objeção | Case | Quote para usar |
+|---|---|---|
+| "Já uso IA" | Eduardo — Microrib (SP) | *"O CEO da Microrib usava até multiagentes. Mas sem roles, hooks e guardrails — era como sentar do lado da IA o dia todo. Dois dias mudaram completamente a operação."* |
+| "Posso aprender no YouTube" | Jones — SISTEC (SP) | *"O Jones da SISTEC disse: 'o conhecimento que pegamos nesses dois dias talvez não conseguiríamos em um ano aprendendo sozinho'. E ele já usava IA antes."* |
+| "Não tenho tempo para ir a SP" | Leonardo — LC Sistemas (PA) | *"O CEO da LC Sistemas veio do Pará com toda a equipe. Disse que tinha muito barulho na internet e não sabia em quem confiar. Saiu com direcionamento claro — valeu cada hora."* |
+| "Está caro" | Rodrigo — Ram Sistemas (SP) | *"O Rodrigo da Ram Sistemas converteu um app Android para web em 2 dias, 100% funcional, em produção. Ele não é programador web. Quanto esse projeto valeu para o cliente dele?"* |
+| "Não sei se funciona para o nosso perfil" | Elisangela — WMC Tecnologia (RS) | *"A Elisangela da WMC é gerente de operações — não é dev. Saiu com planos concretos para comercial, implantação e escalabilidade."* |
+| "Minha linguagem é antiga / específica" | Henrique — Néctar (GO) | *"O Henrique da Néctar usava Cursor. Disse que 'não tem nada a ver' com o que aprendeu aqui. Saiu implementando MCP Server com Docker para padronizar o time."* |
+| "Preciso falar com meu líder técnico" | Rogério — GR7 (SP) | *"O Rogério da GR7 disse que saiu com muito mais do que esperava — e que agora precisa levar o conhecimento para o time inteiro. Esse é exatamente o papel do líder técnico de vocês."* |
+| Lead hesitante / emocional | Marcelo — Pontual (SP) | *"O Marcelo da Pontual chegou achando que não ia conseguir nem arranhar o assunto em 2 dias. Disse que foi a pílula da Matrix. 'Não posso voltar sendo o mesmo Marcelo que chegou aqui.'"* |
+
 ---
 
 ### FASE 2 — GATILHOS REAIS
@@ -252,14 +267,15 @@ Ficou alguma dúvida sobre como a IA agêntica se aplica na realidade de vocês?
 Quero ter certeza que você tem tudo que precisa para decidir com segurança."
 ```
 
-**Mensagem D+3:**
-```
-"[Nome], lembrei de você quando vi esse caso:
-[argumento ou caso real relevante ao stack/dor dele]
+**Mensagem D+3 — Escolha o case pela dor mapeada na qualificação:**
 
-Isso se aplica diretamente ao cenário de vocês.
-A vaga ainda está disponível — me fala se tiver alguma dúvida!"
-```
+| Dor Principal do Lead | Case a Enviar | Texto da Mensagem |
+|---|---|---|
+| Backlog / entrega lenta | Jean — UNC Software (SP) | *"[Nome], lembrei de você. O CEO da UNC Software tinha exatamente essa sensação — usava IA mas não enxergava como resolver o backlog de verdade. Depois da imersão, as palavras dele foram: 'dá para zerar o backlog mesmo'. Ainda temos vaga — me fala se quiser!"* |
+| Bugs / QA ruim | Matheus — Everest (SP) | *"[Nome], isso aqui me lembrou de você. O Matheus da Everest tinha medo de implementar IA em QA — depois viu testes unitários rodando junto com o dev, corrigindo automaticamente. É exatamente a dor que você me descreveu. Vaga ainda disponível."* |
+| "Já uso IA mas sem resultado" | Eduardo — Microrib (SP) | *"[Nome], o CEO da Microrib chegou aqui usando multiagentes — achava que estava bem. Descobriu que sem roles, hooks e guardrails estava trabalhando como babá da IA. Dois dias mudaram a operação. Esse cenário parece muito com o que você me contou."* |
+| Time sem padrão | D'Soft (MS) | *"[Nome], um colaborador da D'Soft disse algo que me fez lembrar de você: 'não existia um formato único para todos os devs trabalharem com segurança'. Saíram com modelo padronizado para o time inteiro. Isso é exatamente o que vocês precisam."* |
+| Medo / hesitação geral | Marcelo — Pontual (SP) | *"[Nome], o Marcelo da Pontual chegou com a mesma sensação que você — achando que em 2 dias não ia nem arranhar o assunto. Saiu dizendo que foi 'a pílula da Matrix'. Disse que não podia voltar sendo o mesmo. Esse é o tipo de decisão que muda o rumo da empresa."* |
 
 **Mensagem D+14 (urgência final):**
 ```

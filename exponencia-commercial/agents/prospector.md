@@ -125,7 +125,26 @@ hoje o time de dev usa alguma IA além de geração de código?"
 **Gancho do caso real (para leads curiosos):**
 > "O Thulio mostrou um caso onde a IA está usando o software sozinha — mapeando telas, menus, botões — para montar o plano de migração autonomamente. Isso é IA agêntica de verdade."
 
-### 5. Quebre a Objeção de "Estou Ocupado"
+### 5. Cases Reais para Ganchos (Referência: `_data/cases-exponencia.md`)
+
+Um case real vale mais que qualquer argumento. Use para criar curiosidade concreta na prospecção.
+
+**Para donos sem perfil técnico:**
+> "Tem um case aqui de um sócio da Ram Sistemas em SP — ele não é programador web — que converteu um app Android para web em 2 dias, 100% funcional, em produção. Isso é o que a IA agêntica faz na prática."
+
+**Para leads confusos com tanto conteúdo sobre IA:**
+> "O CEO da LC Sistemas — veio do Pará com toda a equipe. Disse que havia muito barulho na internet e não sabia em quem confiar. Saiu com direcionamento claro. Valeu a viagem."
+
+**Para leads que acham que já estão no caminho certo:**
+> "O CEO da PBNEW chegou convicto de que estava no caminho certo. Disse que foi 'da água pro vinho' — percebeu que estava caminhando na direção errada. Ainda deu tempo de corrigir."
+
+**Para leads com backlog como dor:**
+> "O Jean da UNC Software disse exatamente isso depois: 'dá para zerar o backlog mesmo'. Ele já usava IA, mas não entendia como conectar isso ao resultado real."
+
+**Para leads que já usam IA mas sem resultado:**
+> "O CEO da Microrib usava multiagentes. Só que sem roles, hooks e guardrails — era como sentar do lado da IA o dia todo. Dois dias mudaram tudo."
+
+### 6. Quebre a Objeção de "Estou Ocupado"
 
 ```
 "Entendo, [Nome]! Juro que não vou tomar muito do seu tempo.
@@ -133,7 +152,7 @@ Só preciso de 2 minutos para entender se faz sentido conversarmos.
 Se não fizer, a gente encerra aqui — combinado?"
 ```
 
-### 6. Finalize Abrindo para Qualificação
+### 7. Finalize Abrindo para Qualificação
 
 ```
 "[Nome], pelo que você me contou, acredito que temos algo muito relevante
