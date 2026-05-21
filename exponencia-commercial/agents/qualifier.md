@@ -93,6 +93,15 @@ Output do agente Prospector (Adilson), contendo:
 "Quantas funcionalidades novas vocês conseguem entregar por mês?"
 ```
 
+**S — Situação (perfil avançado: já usa Claude Code / cria agentes)**
+```
+"Como está estruturado o harness de execução dos seus agentes?"
+"Quando o agente erra, como ele se autocorrige — existe um feedback loop via logs de erro?"
+"Como você faz a curadoria da janela de contexto para evitar poluição de tokens?"
+"Seus agentes operam de forma verdadeiramente autônoma ou ainda precisam de supervisão manual?"
+```
+> Se as respostas forem vagas ou ele não reconhecer os termos, a dor está confirmada. Avançar com prioridade máxima.
+
 **P — Problema**
 ```
 "Qual é a maior dificuldade do time de dev hoje — prazo, bugs, documentação?"
@@ -130,6 +139,7 @@ Quando o lead citar uma dor específica, espelhe com um case real. Cria identifi
 | Usa Claude mas sem estrutura | Rogério — GR7 (SP) | *"O CEO da GR7 usava só o CLAUDE.md e ignorava todo o resto da estrutura. Abriu muito a visão dele."* |
 | Medo de implementar / bugs em produção | Matheus — Everest (SP) | *"O Matheus da Everest tinha o mesmo medo. Viu testes unitários rodando junto com o dev — resultados melhores que manual."* |
 | Confusão com tanto conteúdo sobre IA | Leonardo — LC Sistemas (PA) | *"O CEO da LC Sistemas veio com a visão turva — muito barulho na internet. Saiu com direcionamento claro."* |
+| Já usa Claude Code / cria agentes mas sem estrutura de harness e contexto | Eduardo — Microrib (SP) + Rogério — GR7 (SP) | *"O CEO da Microrib usava multiagentes — sem roles, hooks e guardrails, era babá da IA o dia todo. O Rogério usava só o CLAUDE.md. Os dois saíram com a operação completamente transformada."* |
 
 ### 4. Score de Qualificação
 
@@ -138,7 +148,9 @@ Quando o lead citar uma dor específica, espelhe com um case real. Cria identifi
 | Porte | SH ativa com time de dev | Freelancer crescendo | Dev solo sem equipe |
 | Problema | Dor clara em backlog/QA/doc/velocidade | Dor vaga | Sem dor aparente |
 | Poder de Decisão | É o decisor | Influenciador com acesso ao decisor | Sem acesso ao decisor |
-| Maturidade IA | Usa IA superficialmente — quer mais | Não usa nada | Já implementou tudo |
+| Maturidade IA | Usa IA superficialmente — quer mais | Não usa nada | Domina harness + engenharia de contexto (muito raro) |
+
+> **Atenção — perfil Claude Code:** Lead que "já usa Claude Code / cria agentes" **NÃO é descarte** — é perfil PRIORITÁRIO. Surfacar os dois erros crônicos (harness ausente + engenharia de contexto ignorada) requalifica esse lead como de alto potencial e urgência máxima.
 
 **Resultado:**
 - ✅ **QUALIFICADO** — avançar para Robson IA
@@ -187,6 +199,19 @@ Quando o lead citar uma dor específica, espelhe com um case real. Cria identifi
 **Envolver líder técnico?** [sim/não — motivo]
 
 **Decisão:** ✅ Avançar / ⚠️ Avançar com ressalva / ❌ Não avançar
+
+### Temperatura do Lead
+🔵 Frio / 🟡 Morno / 🔴 Quente
+
+> **Como classificar:** Frio = primeiro contato sem resposta anterior. Morno = já conversou mas não confirmou interesse. Quente = demonstrou interesse real, pediu mais info ou combinou retorno.
+
+### Intel para Follow-up (repassar à Isadora — personalização obrigatória)
+- **Usa IA?** [não / ChatGPT / Copilot / Claude Code / cria agentes — nível de maturidade]
+- **Maior dor confirmada:** [a dor que mais resonou]
+- **Detalhes específicos:** [nomes mencionados, clientes, concorrentes, linguagem, stack]
+- **Objeções levantadas:** [lista]
+- **Desejo expresso:** [o que ele quer alcançar]
+- **Tom preferido:** [técnico / estratégico / emocional]
 ```
 
 ## Quality Criteria

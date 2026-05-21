@@ -110,6 +110,50 @@ enquanto seus devs focam no que realmente importa.
 Isso é o que chamamos de IA agêntica — e é exatamente o que a imersão ensina."
 ```
 
+### "JÁ USO CLAUDE CODE / JÁ CRIO MEUS PRÓPRIOS AGENTES" (perfil técnico avançado)
+
+**Contexto:** Lead está além do ChatGPT — cria agentes de IA ativamente com Claude Code. É o perfil mais sofisticado e o que mais comete erros estruturais sem perceber. Tratar como oportunidade de alto valor, nunca como descarte.
+
+**Diagnóstico do mentor (usar como autoridade técnica):**
+> "O erro crônico nessa fase é negligenciar o Harness de execução — tratando o agente como gerador de sintaxe em vez de operador autônomo. E ignorar a Engenharia de Contexto profunda, sofrendo com 'poluição de tokens'. O resultado: a IA alucina, perde o foco na arquitetura e o dev continua sendo um digitador de código — só que agora um digitador mais caro e menos eficiente."
+
+**Os dois erros crônicos:**
+1. **Harness de Execução ausente** — sem malha de testes e feedback loops, o agente não se autocorrige via logs de erro. O dev vira gargalo humano validando manualmente o que deveria ser ciclo fechado (Extreme Programming 2.0).
+2. **Engenharia de Contexto ignorada** — RAG sem curadoria cirúrgica injeta ruído e dependências obsoletas. A "poluição de tokens" faz a IA alucinar e gerar boilerplate inútil no lugar de arquitetura de receita real.
+
+```
+"Que ótimo — você já está no grupo dos 5% que foi além do Copilot de código.
+Me conta uma coisa: quando você cria esses agentes com Claude Code,
+como está estruturado o harness de execução deles?
+
+[Aguardar — se resposta vaga ou "que harness?"]
+
+'Esse é exatamente o ponto.
+
+O erro mais crônico de quem está nessa fase é tratar o agente
+como gerador de sintaxe em vez de operador autônomo.
+Sem uma malha de testes e feedback loops que permita à IA
+rodar o runtime e se autocorrigir via logs de erro —
+o dev continua sendo o gargalo humano da operação.
+
+O segundo erro é a Engenharia de Contexto. Sem curadoria cirúrgica
+na janela de contexto, você injeta ruído e dependências obsoletas —
+a IA começa a alucinar e gera boilerplate inútil no lugar de arquitetura real.
+
+Quem ensina isso na imersão define assim:
+"O dev que não domina o manejo do contexto e a infraestrutura de validação
+do agente continua sendo um digitador de código —
+só que agora um digitador mais caro e menos eficiente."
+
+Você já tem a base. A imersão é o salto de dev que usa IA
+para arquiteto de sistemas autônomos reais.'"
+```
+
+**Cases para solidificar:**
+- *Eduardo — Microrib (SP):* *"Usava até multiagentes, mas sem roles, hooks e guardrails — era como sentar do lado da IA o dia todo. Dois dias mudaram completamente."*
+- *Rogério — GR7 (SP):* *"Estava usando só o CLAUDE.md, ignorando toda a estrutura. Abriu muito a visão."*
+- *Colaborador — imersão anterior:* *"Implementei harness durante a imersão — subagentes, QA agent, hooks — tudo funcionando. Saí com framework para levar pro time inteiro."*
+
 ### "NÃO TENHO TEMPO PARA IR A SP"
 ```
 "Exatamente por não ter tempo que você precisa ir.
@@ -238,3 +282,66 @@ faz mais diferença.
 Faz sentido eu te mostrar como os 3 pilares da imersão resolvem
 cada um desses pontos na prática?"
 ```
+
+---
+
+## FOLLOW-UP ESTRATIFICADO E FUNIL DE RECUPERAÇÃO
+
+### Temperatura da Lista — Definir SEMPRE antes de estruturar qualquer cadência
+
+🔵 **FRIO** — nunca ligou, primeira tentativa, nunca respondeu nada
+- Canal: Ligação + WhatsApp | Frequência: 1x/semana | Meta: Qualificar
+
+🟡 **MORNO** — ligou 1-2x, já conversou mas não confirmou interesse
+- Canal: WhatsApp com conteúdo + Ligação | Frequência: 2-3x/semana | Meta: Despertar interesse
+
+🔴 **QUENTE** — combinou retorno mas não seguiu / está em negociação ativa
+- Canal: Ligação + WhatsApp diário | Frequência: Diária | Meta: Converter
+- **Limite:** 5-8 dias sem resposta → acionar ultimato e despedida obrigatoriamente
+
+---
+
+### Inteligência do Lead — Personalização Obrigatória
+
+Antes de qualquer follow-up, usar tudo que foi coletado:
+- Usa IA? Qual? Nível de maturidade (ChatGPT / Copilot / Claude Code / cria agentes)?
+- Maior desafio citado (backlog, QA, doc, dev sobrecarregado, etc.)
+- Dores e desejos expressos durante a conversa
+- Detalhes específicos mencionados (nome de dev, cliente, concorrente, linguagem, stack)
+- Objeções levantadas e como foram tratadas
+
+> **Regra de ouro:** cada mensagem de follow-up deve referenciar algo que *aquele* lead disse. Isso é o que separa follow-up que converte de spam.
+
+---
+
+### 5 Elementos da Cadência (definir os 5 antes de começar)
+
+1. **Tentativas** — quantos toques no fluxo total
+2. **Canal** — WhatsApp, ligação, e-mail (variar entre os toques)
+3. **Duração** — janela total do fluxo (ex: 21 dias)
+4. **Espaçamento** — intervalo entre cada toque (conforme temperatura)
+5. **Conteúdo** — tipo diferente em cada toque (nunca repetir o mesmo)
+
+---
+
+### 8 Tipos de Conteúdo para Follow-ups
+
+**1. Consultivo + dor** — "Você ainda tem interesse em [benefício central] por meio da Imersão ExponencIA?"
+**2. Prova social** — case de cliente com a mesma dor, preferencialmente empresa similar
+**3. Vídeo educativo** — pautado no problema que a imersão resolve
+**4. Conteúdo de dor** — artigo, podcast ou material alinhado à dor específica, sem mencionar o produto
+**5. Questionário interativo** — pergunta de 0-10 ou escolha binária que reabre a conversa
+**6. Notícias e tendências de mercado** — urgência competitiva com dados externos
+**7. Pessoalidade** — aniversário, conquistas, momentos especiais do time
+**8. Ultimato e despedida** — pedir o "não" com sinceridade (libera agenda e frequentemente reativa)
+
+---
+
+### Funil de Recuperação (leads frios / bases antigas)
+
+Princípio: **não vender — agregar valor** até o lead voltar ao funil ativo.
+
+1. Segmentar por histórico: o que foi conversado, qual dor foi citada, qual objeção surgiu
+2. Mandar conteúdo alinhado especificamente àquela dor (artigo, case, podcast)
+3. Campanhas de reativação com estímulo **diferente** do que foi usado antes — nova oferta, novo ângulo
+4. Só voltar ao pitch depois que o lead demonstrar engajamento

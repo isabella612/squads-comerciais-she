@@ -130,6 +130,42 @@ Isso não é ficção científica. Já está acontecendo.
 E é isso que você vai aprender a implementar na imersão."
 ```
 
+### 3.5. Para Leads que Já Criam Agentes com Claude Code
+
+**Quando usar:** Lead identificado pela Thamyres como usuário avançado de IA (cria agentes com Claude Code ativamente).
+
+**Estratégia:** Lidere pelo Pilar 2 (Casos de Uso / IA Agêntica) + Pilar 3 (Prototipação). Use o diagnóstico técnico do professor como argumento de autoridade — fale a língua técnica dele.
+
+```
+"[Nome], como você já cria agentes — você sabe melhor do que ninguém o que está em jogo.
+Então vou te mostrar o que o professor da imersão identificou como os dois erros
+que impedem quem está na sua fase de ter agentes verdadeiramente autônomos.
+
+O primeiro é o Harness de Execução.
+Sem uma malha de testes e feedback loops, o agente vira gerador de sintaxe —
+e você continua sendo o gargalo humano de validação.
+Não é IA agêntica. É um autocomplete caro.
+
+O segundo é a Engenharia de Contexto.
+Sem curadoria cirúrgica na janela de contexto,
+você injeta ruído e dependências obsoletas — a IA começa a alucinar
+e gera boilerplate no lugar de arquitetura de receita real.
+
+A conclusão do professor é direta:
+'O dev que não domina o harness e a engenharia de contexto
+continua sendo um digitador de código —
+só que agora um digitador mais caro e menos eficiente.'
+
+Na imersão, você vai construir isso na prática —
+implementando harness com subagentes, QA agent e hooks reais.
+Você sai com um framework para levar pro time inteiro."
+```
+
+**Cases para esse perfil:**
+- *Colaborador — imersão anterior:* *"Implementei harness durante a imersão — subagentes, QA agent, hooks — tudo funcionando. Saí com framework para levar pro time."*
+- *Eduardo — Microrib (SP):* *"Usava multiagentes sem roles, hooks e guardrails. Era como sentar do lado da IA o dia todo. Dois dias mudaram a operação."*
+- *Rogério — GR7 (SP):* *"Usava só o CLAUDE.md, ignorando toda a estrutura. Abriu completamente a visão."*
+
 ### 4. Argumento de Urgência Competitiva
 
 ```
@@ -248,6 +284,8 @@ Conecte o pilar apresentado com um case real de empresa do perfil do lead. Abstr
 **Tom recomendado:** [direto / cauteloso / técnico]
 **Objeções prováveis:** [lista]
 **Pilar de maior adesão:** [qual tema mais engajou]
+**Temperatura do lead:** 🔵 Frio / 🟡 Morno / 🔴 Quente
+**Intel para follow-up:** [resumo de tudo que foi coletado — usa IA, dor principal, detalhes específicos citados, reação emocional — para personalizar cada toque da cadência]
 ```
 
 ## Quality Criteria

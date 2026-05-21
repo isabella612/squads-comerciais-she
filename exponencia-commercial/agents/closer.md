@@ -92,6 +92,40 @@ de forma autônoma, enquanto seus devs focam no que só humano faz.
 vão desenvolver em outro patamar. A imersão é exatamente esse salto."
 ```
 
+#### "JÁ USO CLAUDE CODE / JÁ CRIO MEUS PRÓPRIOS AGENTES" (perfil técnico avançado)
+```
+"Perfeito — isso coloca você no topo da curva de adoção.
+
+Mas deixa eu te fazer uma pergunta técnica direta:
+como está estruturado o harness de execução dos seus agentes?
+Existe uma malha de testes e feedback loops onde a IA se autocorrige via logs?
+
+[Aguardar]
+
+O professor da imersão mapeou dois erros crônicos de quem está nessa fase:
+
+Primeiro: tratar o agente como gerador de sintaxe em vez de operador autônomo.
+Sem harness, o dev vira gargalo humano — validando manualmente
+o que deveria ser um ciclo fechado de autocorreção.
+
+Segundo: ignorar a Engenharia de Contexto. Sem curadoria cirúrgica na janela
+de contexto, você injeta ruído e dependências obsoletas — 'poluição de tokens'.
+A IA começa a alucinar e gera boilerplate inútil no lugar de arquitetura real.
+
+A conclusão dele é precisa:
+'O dev que não domina o harness e a engenharia de contexto
+continua sendo um digitador de código —
+só que agora um digitador mais caro e menos eficiente.'
+
+Você não chegou até aqui para ser um digitador caro.
+A imersão é exatamente para quem está no seu nível
+e quer ir de dev que usa IA para arquiteto de sistemas autônomos reais."
+```
+
+**Cases para solidificar:**
+- *Colaborador — imersão anterior:* *"Implementei harness durante a imersão — subagentes, QA agent, hooks. Saí com framework para levar pro time inteiro."*
+- *Eduardo — Microrib (SP):* *"Usava multiagentes. Sem roles, hooks e guardrails — era babá da IA. Dois dias mudaram completamente."*
+
 #### "NÃO TENHO TEMPO PARA IR A SP"
 ```
 "Exatamente por não ter tempo que você precisa ir.
@@ -240,6 +274,25 @@ Eu não quero isso para você. E você também não quer."
 
 ---
 
+### PRÉ-FASE 4 — CLASSIFICAR TEMPERATURA ANTES DE QUALQUER FOLLOW-UP
+
+> Sempre classificar a temperatura do lead antes de estruturar a cadência. A frequência, canal e conteúdo mudam completamente.
+
+🔵 **FRIO** — nunca ligou, primeira tentativa, nunca respondeu nada
+- Canal: Ligação + WhatsApp | Frequência: 1x/semana | Meta: Qualificar
+
+🟡 **MORNO** — conversou 1-2x, demonstrou interesse mas não confirmou
+- Canal: WhatsApp com conteúdo + Ligação | Frequência: 2-3x/semana | Meta: Despertar interesse
+
+🔴 **QUENTE** — combinou retorno mas sumiu / está em negociação ativa
+- Canal: Ligação + WhatsApp diário | Frequência: Diária | Meta: Converter
+- **Limite:** 5-8 dias sem resposta → acionar ultimato e despedida obrigatoriamente
+
+**Inteligência do Lead — usar TUDO que foi coletado:**
+Usa IA? Qual nível? Maior dor citada? Nomes mencionados (dev, cliente, concorrente)? Objeções levantadas? Tom da conversa? Cada mensagem de follow-up deve referenciar algo específico que aquele lead disse — isso é o que separa follow-up que converte de spam.
+
+---
+
 ### FASE 4 — PÓS-FECHAMENTO E FOLLOW-UP
 
 **Se fechar:**
@@ -250,14 +303,35 @@ Vou te mandar o link de confirmação agora.
 Lembra de levar o notebook — você vai sair com o protótipo funcionando."
 ```
 
-**Follow-up se não fechou hoje:**
+**Follow-up se não fechou hoje — aplicar conforme temperatura:**
 
-| Dia | Ação | Conteúdo |
+**🔴 QUENTE** (combinou retorno / está em negociação — cadência diária):
+| Dia | Canal | Tipo de conteúdo |
 |---|---|---|
-| D+1 | WhatsApp | "Ficou alguma dúvida sobre como funciona na linguagem de vocês?" |
-| D+3 | WhatsApp | Enviar argumento técnico ou caso real relevante ao cenário dele |
+| D+1 | WhatsApp | Consultivo + dor — referenciar algo específico que ele disse |
+| D+2 | Ligação | Reativação direta — identificar obstáculo real |
+| D+3 | WhatsApp | Prova social — case com a mesma dor principal |
+| D+5 | WhatsApp | Questionário — escala 0-10 sobre autonomia atual |
 | D+7 | Ligação | Verificar decisão + status de vagas |
-| D+14 | WhatsApp | Última mensagem — urgência de data |
+| D+10 | WhatsApp | Urgência de data — Turma 1: 28/29 Mai ou Turma 2: 30/31 Mai |
+| D+14 | WhatsApp | **Ultimato** — pedir o não com sinceridade |
+
+**🟡 MORNO** (conversou mas não confirmou — 2-3x/semana):
+| Dia | Canal | Tipo de conteúdo |
+|---|---|---|
+| D+3 | WhatsApp | Conteúdo de dor — artigo/case alinhado à dor citada |
+| D+7 | WhatsApp | Prova social — case de empresa similar |
+| D+10 | Ligação | Retomar com nova abordagem |
+| D+14 | WhatsApp | Notícia de mercado — urgência competitiva 2026 |
+| D+21 | WhatsApp | **Ultimato** — pedir o não com sinceridade |
+
+**🔵 FRIO** (nunca respondeu — 1x/semana):
+| Dia | Canal | Tipo de conteúdo |
+|---|---|---|
+| D+7 | Ligação + WhatsApp | Consultivo — pergunta sobre IA na operação |
+| D+14 | WhatsApp | Conteúdo de dor — material relevante à dor do segmento |
+| D+21 | WhatsApp | Prova social — case de resultado concreto |
+| D+30 | WhatsApp | **Despedida** — abrir espaço para o não |
 
 **Mensagem D+1:**
 ```
@@ -276,13 +350,93 @@ Quero ter certeza que você tem tudo que precisa para decidir com segurança."
 | "Já uso IA mas sem resultado" | Eduardo — Microrib (SP) | *"[Nome], o CEO da Microrib chegou aqui usando multiagentes — achava que estava bem. Descobriu que sem roles, hooks e guardrails estava trabalhando como babá da IA. Dois dias mudaram a operação. Esse cenário parece muito com o que você me contou."* |
 | Time sem padrão | D'Soft (MS) | *"[Nome], um colaborador da D'Soft disse algo que me fez lembrar de você: 'não existia um formato único para todos os devs trabalharem com segurança'. Saíram com modelo padronizado para o time inteiro. Isso é exatamente o que vocês precisam."* |
 | Medo / hesitação geral | Marcelo — Pontual (SP) | *"[Nome], o Marcelo da Pontual chegou com a mesma sensação que você — achando que em 2 dias não ia nem arranhar o assunto. Saiu dizendo que foi 'a pílula da Matrix'. Disse que não podia voltar sendo o mesmo. Esse é o tipo de decisão que muda o rumo da empresa."* |
+| Já usa Claude Code / cria agentes mas sem harness | Colaborador (imersão anterior) + Eduardo — Microrib (SP) | *"[Nome], lembrei de você. Um participante da última turma chegou criando agentes com Claude Code — achava que estava no caminho certo. Saiu depois de implementar harness com subagentes, QA agent e hooks na prática. Disse: 'saí com um framework para levar pro time inteiro'. O Eduardo da Microrib usava multiagentes — sem a estrutura certa era babá da IA. Dois dias mudaram a operação. Esse cenário me lembrou exatamente do que você me contou."* |
 
-**Mensagem D+14 (urgência final):**
+**Mensagem D+14 (urgência final — antes do ultimato):**
 ```
 "[Nome], a imersão é dia 28/29 de Maio (Turma 1) ou 30/31 de Maio (Turma 2).
 São apenas 35 vagas por turma e estão quase esgotadas.
 Se fizer sentido, é agora. Se não for o momento, tudo bem — mas não quero
 que você perca por falta de aviso da minha parte."
+```
+
+---
+
+### SCRIPTS DE ULTIMATO E DESPEDIDA
+
+> Usar quando lead quente passa 5-8 dias sem resposta, ou no toque final de qualquer cadência. O objetivo é pedir o "não" com sinceridade — isso libera a agenda e frequentemente reativa o lead.
+
+**Script 1 — Padrão:**
+```
+"Oi [Nome], tudo bem? Vi que nos últimos dias a gente teve dificuldade em alinhar as agendas.
+Quero que você seja 100% sincero comigo — seu não é tão importante quanto o seu sim.
+
+Posso considerar que nesse momento você não tem interesse em [transformação central — ex: estruturar IA agêntica no time e resolver o backlog de vocês]?
+Posso disponibilizar esse horário para outro empresário?"
+```
+
+**Script 2 — Direto:**
+```
+"Oi [Nome], vi que a gente teve dificuldade em dar continuidade sobre [tema da nossa conversa].
+Você tem interesse em resolver de uma vez por todas [dor principal citada por ele] —
+ou posso tirar você da nossa lista de prioridades por agora?"
+```
+
+**Script 3 — Relatório de vendas:**
+```
+"[Nome], vi que você ainda não tomou a decisão sobre a imersão.
+Estou preenchendo um relatório de vendas e preciso registrar o status da nossa negociação.
+Já comprou de outra empresa? Ainda está avaliando? Só me fala para eu colocar aqui."
+```
+
+**Script 4 — Condição especial:**
+```
+"Oi [Nome]! Conversei com minha gestora e lembrei de você.
+Você demonstrou bastante interesse na Imersão ExponencIA e pensamos em uma condição especial.
+Posso mandar a proposta aqui?"
+```
+
+**Script 5 — Não quero parecer insistente:**
+```
+"Oi [Nome]! Não quero parecer insistente, mas como acredito que a imersão pode te ajudar muito, resolvi te lembrar.
+Se não fizer sentido agora, fica à vontade pra me dizer.
+[Pergunta de próxima etapa — ex: 'Fica melhor a Turma 1 (28/29 Mai) ou a Turma 2 (30/31 Mai)?']"
+```
+
+**Script 6 — Estava engajado e sumiu:**
+```
+"Bom dia [Nome]! Lembro que você estava muito interessado — o que houve que te impediu de confirmar?"
+```
+
+---
+
+### FUNIL DE RECUPERAÇÃO — Leads Frios e Bases Antigas
+
+> Para leads que esfriaram, nunca converteram ou são de listas antigas. **Guardar as garras — não é momento de vender. É momento de agregar valor até ele voltar ao funil.**
+
+**Princípios:**
+1. Segmentar por histórico — o que foi conversado, qual dor foi citada, qual objeção surgiu
+2. Identificar a dor/desejo principal e mandar conteúdo alinhado especificamente a isso
+3. Variar o tipo de conteúdo a cada toque — artigo, case, podcast, vídeo, questionário
+4. Campanhas de reativação precisam de estímulo **diferente** do que foi usado antes — nova oferta, novo benefício, novo ângulo
+5. Só voltar ao pitch depois que o lead demonstrar engajamento
+
+**8 tipos de conteúdo para reaquecimento:**
+1. **Artigo/podcast alinhado à dor** — mandar sem pedir nada em troca
+2. **Case de cliente com a mesma dor** — *"lembrei de você"*
+3. **Vídeo educativo** — pautado no problema que a imersão resolve
+4. **Questionário interativo** — *"responde com um número de 0 a 10..."*
+5. **Notícia de mercado** — urgência competitiva com dado externo
+6. **Pessoalidade** — aniversário, conquista da empresa, momento especial
+7. **Prova social** — concorrente ou empresa similar que teve resultado
+8. **Ultimato** — pedir o não, abrir espaço, encerrar o ciclo
+
+**Exemplo de reaquecimento personalizado:**
+```
+"Oi [Nome]! Lembrei de você essa semana.
+Na nossa conversa você me falou sobre [dor específica que ele citou].
+Encontrei [esse case / esse artigo / esse dado] que parece muito com o cenário de vocês.
+Acho que vai fazer sentido pra você — posso mandar?"
 ```
 
 ## Expected Output

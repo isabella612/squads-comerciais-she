@@ -104,6 +104,21 @@ A grande virada é transformar a IA em um membro da equipe de dev.
 Posso te enviar um resumo de como isso funciona na prática?"
 ```
 
+**Resposta para o perfil técnico avançado** — quando ele disser "Já uso Claude Code / já crio agentes de IA":
+```
+"Que ótimo — você já está no grupo dos 5% que foi além do Copilot de código.
+Me conta uma coisa: quando você cria esses agentes,
+como está estruturado o harness de execução deles?
+
+[Aguardar. Se resposta vaga ou "que harness?"]
+
+'Esse é exatamente o ponto — e é o que a imersão fecha.
+Posso te mostrar o que o professor identificou como os dois erros crônicos
+de quem está nessa fase?'"
+```
+
+> **Regra:** Nunca revelar o produto ainda. Use a pergunta do harness para criar curiosidade diagnóstica — o lead sente que tem um gap real sem perceber. Essa pergunta abre mais do que qualquer pitch.
+
 ### 3. Script de Abordagem INBOUND
 
 ```
@@ -199,6 +214,13 @@ personalizar o que vou te mostrar?"
 - [ ] Respondeu positivamente — avançar para qualificação
 - [ ] Respondeu com resistência — aplicar quebra de objeção
 - [ ] Não respondeu — iniciar follow-up
+
+### Intel para Follow-up (registrar tudo — personalização obrigatória)
+- **Usa IA?** [não / ChatGPT / Copilot / Claude Code / cria agentes]
+- **Maior desafio citado:** [texto livre]
+- **Detalhes específicos mencionados:** [nome de dev, cliente, concorrente, linguagem, stack]
+- **Tom/reação:** [receptivo / resistente / curioso / frio / técnico]
+- **Temperatura:** 🔵 Frio / 🟡 Morno / 🔴 Quente
 ```
 
 ## Quality Criteria
