@@ -1,0 +1,265 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Dossiê Comercial — Schema",
+  "description": "Estrutura de dados para o dossiê comercial. Gere este JSON para cada prospect e renderize com dossie.template.html.",
+  "type": "object",
+  "required": ["meta", "classificacao", "empresa", "socios", "decisor", "bant", "score_fit", "dores", "mercado", "estrategia"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "gerado_em": { "type": "string", "description": "Data de geração (DD/MM/AAAA)" },
+        "squad": { "type": "string", "description": "Nome da squad que gerou" },
+        "url_analisada": { "type": "string", "description": "URL do site analisado" }
+      }
+    },
+    "classificacao": {
+      "type": "object",
+      "description": "Classificação do tipo de SH e roteamento de produto — campo obrigatório",
+      "required": ["tipo_sh", "produto_recomendado", "justificativa", "faturamento_estimado", "faturamento_no_sweet_spot", "cidade", "estado", "proximidade_guarulhos", "ajuste_score_geo"],
+      "properties": {
+        "tipo_sh": {
+          "type": "string",
+          "enum": ["ERP Próprio", "Fábrica de Software", "Híbrida", "Fora do ICP"],
+          "description": "Tipo de software house — define qual produto recomendar"
+        },
+        "produto_recomendado": {
+          "type": "string",
+          "enum": ["Imersão Software House 10x", "ExponencIA", "Nenhum"],
+          "description": "ERP Próprio → Imersão 10x | Fábrica → ExponencIA | Fora do ICP → Nenhum"
+        },
+        "justificativa": {
+          "type": "string",
+          "description": "Evidências que levaram à classificação do tipo de SH"
+        },
+        "faturamento_estimado": {
+          "type": "string",
+          "description": "Estimativa de faturamento mensal. Ex: 'R$80k–R$150k/mês'"
+        },
+        "faturamento_no_sweet_spot": {
+          "type": "string",
+          "enum": ["Dentro", "Fora", "Marginal", "Não estimado"],
+          "description": "Sweet spot: R$51k–R$350k/mês"
+        },
+        "cidade": { "type": "string" },
+        "estado": { "type": "string" },
+        "proximidade_guarulhos": {
+          "type": "string",
+          "description": "Avaliação de proximidade ao evento presencial em Guarulhos/SP"
+        },
+        "ajuste_score_geo": {
+          "type": "number",
+          "enum": [-1, 0, 1],
+          "description": "+1 para SP/Guarulhos, 0 para interior SP e Sul/Sudeste, -1 para Norte/Nordeste/CO"
+        }
+      }
+    },
+    "empresa": {
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string", "description": "Nome curto da empresa" },
+        "nome_completo": { "type": "string", "description": "Nome completo com qualificação" },
+        "razao_social": { "type": "string" },
+        "cnpj": { "type": "string", "description": "Formato: XX.XXX.XXX/XXXX-XX" },
+        "fundacao": { "type": "string", "description": "Data no formato DD/MM/AAAA" },
+        "anos_mercado": { "type": "number" },
+        "situacao_receita": { "type": "string", "enum": ["Ativa", "Baixada", "Suspensa", "Inapta"] },
+        "porte": { "type": "string", "description": "MEI | Micro Empresa (ME) | EPP | Médio | Grande" },
+        "capital_social": { "type": "string" },
+        "cnae": { "type": "string" },
+        "email_fiscal": { "type": ["string", "null"] },
+        "endereco": { "type": "string" },
+        "cep": { "type": ["string", "null"] },
+        "cidade": { "type": "string" },
+        "estado": { "type": "string" },
+        "telefone": { "type": ["string", "null"] },
+        "telefone_0800": { "type": ["string", "null"] },
+        "site": { "type": "string" },
+        "segmento": { "type": "string" },
+        "missao": { "type": ["string", "null"] },
+        "visao": { "type": ["string", "null"] },
+        "proposta_valor": { "type": ["string", "null"] },
+        "num_clientes": { "type": "string", "description": "Ex: '50+', '120', 'não informado'" },
+        "blog_ativo": { "type": "boolean" },
+        "ultimo_post_blog": { "type": ["string", "null"] },
+        "resumo": { "type": "string", "description": "2-3 linhas descrevendo a empresa para o header do dossiê" },
+        "nota_imprensa": { "type": ["string", "null"], "description": "Menções relevantes em veículos de imprensa" },
+        "pills": {
+          "type": "array",
+          "description": "Tags de destaque no header",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "tipo": { "type": "string", "enum": ["green", "yellow", "red", "blue", "teal"] }
+            }
+          }
+        }
+      }
+    },
+    "socios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "qualificacao": { "type": "string" },
+          "desde": { "type": "string" },
+          "linkedin": { "type": ["string", "null"] },
+          "decisor": { "type": "boolean" }
+        }
+      }
+    },
+    "decisor": {
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string" },
+        "cargo": { "type": "string" },
+        "linkedin": { "type": ["string", "null"] },
+        "telefone": { "type": ["string", "null"] },
+        "ativo_linkedin": { "type": "string" }
+      }
+    },
+    "produtos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "descricao": { "type": "string" },
+          "versoes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "clientes_identificados": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "redes_sociais": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "plataforma": { "type": "string" },
+          "handle": { "type": "string" },
+          "url": { "type": "string" },
+          "seguidores": { "type": ["string", "null"] },
+          "posts": { "type": ["string", "null"] },
+          "status": { "type": "string", "enum": ["Ativo", "Existe", "Inativo", "Não encontrado"] }
+        }
+      }
+    },
+    "reputacao": {
+      "type": "object",
+      "properties": {
+        "reclame_aqui_nota": { "type": ["number", "null"] },
+        "reclame_aqui_reclamacoes": { "type": ["string", "null"] },
+        "reclame_aqui_status": { "type": ["string", "null"] },
+        "google_nota": { "type": ["number", "null"] },
+        "capterra_nota": { "type": ["number", "null"] }
+      }
+    },
+    "linha_do_tempo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ano": { "type": "string" },
+          "evento": { "type": "string" }
+        }
+      }
+    },
+    "bant": {
+      "type": "object",
+      "properties": {
+        "budget":    { "type": "object", "properties": { "classificacao": { "type": "string" }, "cor": { "type": "string", "enum": ["green","yellow","red","teal","blue"] }, "justificativa": { "type": "string" } } },
+        "authority": { "type": "object", "properties": { "classificacao": { "type": "string" }, "cor": { "type": "string" }, "justificativa": { "type": "string" } } },
+        "need":      { "type": "object", "properties": { "classificacao": { "type": "string" }, "cor": { "type": "string" }, "justificativa": { "type": "string" } } },
+        "timeline":  { "type": "object", "properties": { "classificacao": { "type": "string" }, "cor": { "type": "string" }, "justificativa": { "type": "string" } } },
+        "score_favoraveis": { "type": "number", "minimum": 0, "maximum": 4 }
+      }
+    },
+    "score_fit": {
+      "type": "object",
+      "properties": {
+        "total": { "type": "number" },
+        "max": { "type": "number" },
+        "classificacao": { "type": "string", "enum": ["Quente", "Morno", "Frio"] },
+        "criterios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "criterio":  { "type": "string" },
+              "nota":      { "type": "number" },
+              "max":       { "type": "number" },
+              "evidencia": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "dores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "titulo":     { "type": "string" },
+          "evidencia":  { "type": "string" },
+          "dor_interna":{ "type": "string" }
+        }
+      }
+    },
+    "mercado": {
+      "type": "object",
+      "properties": {
+        "posicionamento":    { "type": "string" },
+        "oportunidades":     { "type": "array", "items": { "type": "object", "properties": { "titulo": { "type": "string" }, "descricao": { "type": "string" } } } },
+        "ameacas":           { "type": "array", "items": { "type": "object", "properties": { "titulo": { "type": "string" }, "descricao": { "type": "string" } } } },
+        "score_competitivo": { "type": "array", "items": { "type": "object", "properties": { "dimensao": { "type": "string" }, "score": { "type": "number" } } } },
+        "janela_estrategica":{ "type": "string" }
+      }
+    },
+    "estrategia": {
+      "type": "object",
+      "properties": {
+        "spin": {
+          "type": "object",
+          "properties": {
+            "situacao":   { "type": "array", "items": { "type": "string" } },
+            "problema":   { "type": "array", "items": { "type": "string" } },
+            "implicacao": { "type": "array", "items": { "type": "string" } },
+            "need_payoff":{ "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "script_whatsapp": { "type": "array", "items": { "type": "string" } },
+        "script_ligacao":  { "type": "array", "items": { "type": "string" } },
+        "objecoes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "objecao":  { "type": "string" },
+              "por_que":  { "type": "string" },
+              "resposta": { "type": "string" }
+            }
+          }
+        },
+        "ficha_executiva": {
+          "type": "object",
+          "properties": {
+            "canal_recomendado":  { "type": "string" },
+            "melhor_horario":     { "type": "string" },
+            "urgencia":           { "type": "string" },
+            "argumento_principal":{ "type": "string" },
+            "atencao":            { "type": "string" },
+            "dores_prioritarias": {
+              "type": "array",
+              "items": { "type": "object", "properties": { "label": { "type": "string" }, "tipo": { "type": "string" } } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

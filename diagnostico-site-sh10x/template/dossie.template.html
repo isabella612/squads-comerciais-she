@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Comercial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0d14; --surface:#13151f; --surface2:#1a1d2b; --border:#252840;
+      --accent:#7c6ef5; --accent2:#3ecfbb; --accent3:#ff6370; --accent4:#f5c842;
+      --text:#dde1f0; --muted:#7278a0; --green:#4ade80; --red:#f87171;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:'Syne',sans-serif}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* HEADER */
+    .hdr{padding:44px 52px 36px;border-bottom:1px solid var(--border);background:linear-gradient(160deg,#13151f 0%,#0b0d14 100%);position:relative;overflow:hidden}
+    .hdr::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% -20%,rgba(124,110,245,.12) 0%,transparent 70%);pointer-events:none}
+    .hdr-eyebrow{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .hdr-eyebrow::before{content:'◆';font-size:7px;opacity:.7}
+    .hdr-top{display:flex;align-items:flex-start;justify-content:space-between;gap:32px;flex-wrap:wrap}
+    .hdr-left h1{font-size:38px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1}
+    .hdr-left h1 em{color:var(--accent);font-style:normal}
+    .hdr-desc{margin-top:10px;font-size:14px;color:var(--muted);max-width:520px}
+    .hdr-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+
+    /* SCORE CARD */
+    .score-card{flex-shrink:0;background:rgba(124,110,245,.08);border:1px solid rgba(124,110,245,.35);border-radius:18px;padding:24px 32px;text-align:center;min-width:160px}
+    .score-card .snum{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:var(--accent);line-height:1;letter-spacing:-3px}
+    .score-card .slabel{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
+    .score-card .sstatus{margin-top:8px;font-size:12px;font-weight:700;color:var(--green);background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);border-radius:20px;padding:3px 12px;display:inline-block}
+
+    /* PILLS */
+    .pill{display:inline-flex;align-items:center;padding:4px 11px;border-radius:20px;font-size:12px;font-weight:600}
+    .pill-green{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.25)}
+    .pill-yellow{background:rgba(245,200,66,.12);color:var(--accent4);border:1px solid rgba(245,200,66,.25)}
+    .pill-red{background:rgba(248,113,113,.12);color:var(--red);border:1px solid rgba(248,113,113,.25)}
+    .pill-blue{background:rgba(124,110,245,.12);color:var(--accent);border:1px solid rgba(124,110,245,.25)}
+    .pill-teal{background:rgba(62,207,187,.12);color:var(--accent2);border:1px solid rgba(62,207,187,.25)}
+
+    /* FICHA EXEC */
+    .ficha-exec{margin:28px 52px;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .ficha-exec-hdr{padding:12px 22px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+    .ficha-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .ficha-cell{padding:16px 22px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .ficha-cell:nth-child(3n){border-right:none}
+    .ficha-cell label{display:block;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+    .ficha-cell .val{font-size:14px;font-weight:600;color:var(--text)}
+    .ficha-cell .val.accent{color:var(--accent)}
+
+    /* LAYOUT */
+    .container{padding:0 52px 52px}
+
+    /* SECTION */
+    .section{margin-top:40px}
+    .section-hdr{display:flex;align-items:center;gap:14px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+    .agent-avatar{width:40px;height:40px;border-radius:50%;border:2px solid var(--border);object-fit:cover;flex-shrink:0}
+    .section-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:#fff}
+    .section-sub{font-size:12px;color:var(--muted);margin-top:1px}
+    .agent-tag{margin-left:auto;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;flex-shrink:0}
+    .tag-marcos{background:rgba(62,207,187,.12);color:var(--accent2);border:1px solid rgba(62,207,187,.25)}
+    .tag-camila{background:rgba(124,110,245,.12);color:var(--accent);border:1px solid rgba(124,110,245,.25)}
+    .tag-bruno{background:rgba(245,200,66,.12);color:var(--accent4);border:1px solid rgba(245,200,66,.25)}
+    .tag-fernanda{background:rgba(248,113,113,.12);color:var(--accent3);border:1px solid rgba(248,113,113,.25)}
+    .tag-market{background:rgba(74,222,128,.12);color:var(--green);border:1px solid rgba(74,222,128,.25)}
+
+    /* TABLE */
+    .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+    table{width:100%;border-collapse:collapse}
+    th{text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:11px 16px;border-bottom:1px solid var(--border);background:var(--surface2)}
+    td{padding:11px 16px;border-bottom:1px solid var(--border);vertical-align:top;font-size:13.5px;line-height:1.6}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,255,255,.015)}
+    td strong{color:#fff;font-weight:600}
+    td .note{font-size:12px;color:var(--muted);margin-top:2px}
+
+    /* TIMELINE */
+    .timeline{position:relative;padding-left:28px;border-left:2px solid var(--border);display:flex;flex-direction:column;gap:20px}
+    .tl-item{position:relative}
+    .tl-item::before{content:'';position:absolute;left:-35px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+    .tl-year{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1px;margin-bottom:2px}
+    .tl-text{font-size:13.5px;color:var(--text)}
+
+    /* BANT */
+    .bant-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .bant-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px}
+    .bant-letter{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--accent);line-height:1}
+    .bant-name{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+    .bant-class{font-size:15px;font-weight:700;margin-bottom:6px}
+    .bant-why{font-size:13px;color:var(--muted);line-height:1.55}
+    .c-green{color:var(--green)} .c-yellow{color:var(--accent4)} .c-teal{color:var(--accent2)} .c-red{color:var(--red)} .c-blue{color:var(--accent)}
+
+    /* SCORE */
+    .score-breakdown{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:14px}
+    .score-row{display:flex;align-items:center;gap:16px;padding:13px 20px;border-bottom:1px solid var(--border)}
+    .score-row:last-child{border-bottom:none}
+    .score-row.total{background:rgba(124,110,245,.07);padding:16px 20px}
+    .sc-crit{flex:1}
+    .sc-crit .title{font-size:14px;font-weight:500;color:var(--text)}
+    .sc-crit .ev{font-size:12px;color:var(--muted);margin-top:2px}
+    .sc-dots{display:flex;gap:5px}
+    .dot{width:10px;height:10px;border-radius:50%;background:var(--border)}
+    .dot.on{background:var(--accent)}
+    .sc-val{font-size:14px;font-weight:700;color:var(--accent);min-width:28px;text-align:right}
+
+    /* DORES */
+    .dor-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:grid;grid-template-columns:36px 1fr 1fr;gap:16px;align-items:start;margin-bottom:10px}
+    .dor-num{width:36px;height:36px;border-radius:50%;background:rgba(124,110,245,.12);border:1px solid rgba(124,110,245,.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:var(--accent);flex-shrink:0}
+    .dor-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:4px}
+    .dor-ev{font-size:13px;color:var(--muted);line-height:1.5}
+    .dor-inner{font-size:13px;color:var(--accent2);font-style:italic;padding-left:14px;border-left:2px solid rgba(62,207,187,.3);line-height:1.55}
+
+    /* SPIN */
+    .spin-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:8px;margin-top:18px}
+    .spin-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+    .sl-s{color:#60a5fa}.sd-s{background:#60a5fa}
+    .sl-p{color:#f87171}.sd-p{background:#f87171}
+    .sl-i{color:var(--accent4)}.sd-i{background:var(--accent4)}
+    .sl-n{color:var(--green)}.sd-n{background:var(--green)}
+    .spin-q{font-size:14px;color:var(--text);line-height:1.65;padding:11px 16px;background:var(--surface);border-left:3px solid;border-radius:0 10px 10px 0;margin-bottom:8px}
+    .sq-s{border-color:#60a5fa}.sq-p{border-color:#f87171}.sq-i{border-color:var(--accent4)}.sq-n{border-color:var(--green)}
+
+    /* SCRIPTS */
+    .script-box{background:#0e1019;border:1px solid var(--border);border-radius:12px;padding:28px 26px 22px;margin-bottom:14px;position:relative}
+    .script-label{position:absolute;top:-11px;left:18px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:2px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent3)}
+    .script-box p{font-size:14px;color:var(--text);margin-bottom:10px;line-height:1.7}
+    .script-box p:last-child{margin-bottom:0}
+    .script-box .pause{color:var(--muted);font-style:italic;font-size:13px}
+
+    /* OBJEÇÕES */
+    .obj-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px 22px;margin-bottom:12px}
+    .obj-title{font-size:14px;font-weight:700;color:var(--accent3);margin-bottom:3px}
+    .obj-why{font-size:12px;color:var(--muted);margin-bottom:12px}
+    .obj-resp{background:rgba(255,99,112,.06);border-left:3px solid var(--accent3);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px;color:var(--text);font-style:italic;line-height:1.65}
+
+    /* MERCADO */
+    .market-2col{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+    .oport-card{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);border-radius:12px;padding:20px 22px}
+    .threat-card{background:rgba(248,113,113,.05);border:1px solid rgba(248,113,113,.2);border-radius:12px;padding:20px 22px}
+    .market-card-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+    .market-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .market-card li{font-size:13.5px;color:var(--text);padding-left:16px;position:relative;line-height:1.55}
+    .market-card li::before{content:'→';position:absolute;left:0;font-size:11px;color:var(--muted);top:1px}
+    .market-card li strong{color:#fff;font-weight:600}
+    .market-card li .note{font-size:12px;color:var(--muted);display:block}
+    .strategy-box{background:linear-gradient(135deg,rgba(124,110,245,.1),rgba(62,207,187,.05));border:1px solid rgba(124,110,245,.3);border-radius:12px;padding:22px 24px;margin-bottom:14px}
+    .strategy-box h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:10px}
+    .strategy-box p{font-size:14px;color:var(--text);line-height:1.7;margin-bottom:10px}
+    .strategy-box p:last-child{margin-bottom:0}
+    .strategy-box .highlight{color:var(--accent4);font-weight:600}
+
+    /* PROGRESS */
+    .prog-wrap{margin-bottom:10px}
+    .prog-label{display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px}
+    .prog-label span:first-child{color:var(--text);font-weight:500}
+    .prog-label span:last-child{color:var(--accent);font-weight:700}
+    .prog-track{height:6px;background:var(--border);border-radius:99px;overflow:hidden}
+    .prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .prog-fill-warn{background:linear-gradient(90deg,var(--accent3),#ff9965)}
+
+    /* FICHA FINAL */
+    .ff-wrap{background:var(--surface);border:2px solid var(--accent);border-radius:14px;overflow:hidden}
+    .ff-head{background:rgba(124,110,245,.1);padding:18px 26px;border-bottom:1px solid rgba(124,110,245,.25)}
+    .ff-head h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#fff}
+    .ff-head p{font-size:13px;color:var(--muted);margin-top:2px}
+    .ff-body{padding:22px 26px}
+    .ff-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:18px}
+    .ff-item label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
+    .ff-item .val{font-size:14px;font-weight:600;color:var(--text)}
+    .ff-sep{border-top:1px solid var(--border);margin:16px 0}
+    .ff-situation{font-size:14px;color:var(--text);padding:14px 16px;background:var(--surface2);border-radius:10px;line-height:1.65;margin-bottom:16px}
+    .ff-arg{background:rgba(124,110,245,.08);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-bottom:16px;font-size:14px;line-height:1.65}
+    .ff-arg strong{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px}
+    .ff-alert{background:rgba(245,200,66,.07);border:1px solid rgba(245,200,66,.25);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--accent4)}
+
+    /* QUOTE */
+    .quote-box{background:var(--surface2);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;font-size:14px;color:var(--text);font-style:italic;line-height:1.65;margin:12px 0}
+    .quote-box cite{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:6px}
+
+    /* MISC */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .inner-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 24px}
+    .sec-title-sm{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:14px}
+    .footer{text-align:center;padding:24px 52px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+<div id="app"></div>
+
+<!-- ══ INJECT DATA BELOW ══ -->
+<script>
+const DATA = null; /* REPLACE_WITH_DATA */
+</script>
+<!-- ══ END DATA ══ -->
+
+<script>
+(function () {
+  if (!DATA) { document.getElementById('app').innerHTML = '<div style="padding:60px;color:#f87171;font-family:monospace;font-size:18px;">⚠ Nenhum dado carregado. Substitua DATA no script.</div>'; return; }
+
+  const D = DATA;
+  const pill = (label, tipo) => `<span class="pill pill-${tipo||'blue'}">${label}</span>`;
+  const safe = v => v || '—';
+  const lnk  = (url, text) => url ? `<a href="${url}" target="_blank">${text||url} ↗</a>` : '—';
+
+  // ── HEADER ──────────────────────────────────────────────────────────────
+  function header() {
+    const e = D.empresa;
+    const [first, ...rest] = e.nome.split(' ');
+    const scoreClass = D.score_fit.classificacao === 'Quente' ? 'var(--green)' : D.score_fit.classificacao === 'Morno' ? 'var(--accent4)' : 'var(--red)';
+    return `
+    <div class="hdr">
+      <div class="hdr-eyebrow">Dossiê Comercial · Imersão Software House 10x</div>
+      <div class="hdr-top">
+        <div class="hdr-left">
+          <h1>${first} <em>${rest.join(' ')}</em></h1>
+          <p class="hdr-desc">${e.resumo}</p>
+          <div class="hdr-pills">${e.pills.map(p=>pill(p.label,p.tipo)).join('')}</div>
+        </div>
+        <div class="score-card">
+          <div class="snum">${D.score_fit.total}</div>
+          <div class="slabel">Score de Fit /${D.score_fit.max}</div>
+          <div class="sstatus" style="color:${scoreClass};background:${scoreClass}18;border-color:${scoreClass}40">● Prospect ${D.score_fit.classificacao}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── CLASSIFICAÇÃO BANNER ─────────────────────────────────────────────────
+  function classifBanner() {
+    const c = D.classificacao;
+    if (!c) return '';
+    const prodColor = c.produto_recomendado === 'Imersão Software House 10x' ? 'var(--accent)' : c.produto_recomendado === 'ExponencIA' ? 'var(--accent2)' : 'var(--red)';
+    const ftColor = c.faturamento_no_sweet_spot === 'Dentro' ? 'var(--green)' : c.faturamento_no_sweet_spot === 'Marginal' ? 'var(--accent4)' : 'var(--red)';
+    const geoIcon = c.ajuste_score_geo > 0 ? '📍 +1 pt proximidade' : c.ajuste_score_geo < 0 ? '✈️ -1 pt distância' : '📍 Neutro';
+    return `
+    <div style="margin:0 52px 28px;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;">
+      <div style="padding:12px 22px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Classificação e Roteamento</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);">
+        <div style="padding:16px 22px;border-right:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Tipo de SH</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">${safe(c.tipo_sh)}</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;">${safe(c.justificativa)}</div>
+        </div>
+        <div style="padding:16px 22px;border-right:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Produto Recomendado</div>
+          <div style="font-size:15px;font-weight:700;color:${prodColor};">${safe(c.produto_recomendado)}</div>
+        </div>
+        <div style="padding:16px 22px;border-right:1px solid var(--border);">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Faturamento Estimado</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">${safe(c.faturamento_estimado)}</div>
+          <div style="margin-top:4px;"><span class="pill ${c.faturamento_no_sweet_spot==='Dentro'?'pill-green':c.faturamento_no_sweet_spot==='Marginal'?'pill-yellow':'pill-red'}" style="font-size:11px;">${safe(c.faturamento_no_sweet_spot)} do sweet spot</span></div>
+        </div>
+        <div style="padding:16px 22px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;">Localização</div>
+          <div style="font-size:15px;font-weight:700;color:#fff;">${safe(c.cidade)}, ${safe(c.estado)}</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">${geoIcon}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── FICHA EXEC ───────────────────────────────────────────────────────────
+  function fichaExec() {
+    const e = D.empresa; const dec = D.decisor; const soc = D.socios;
+    return `
+    <div class="ficha-exec">
+      <div class="ficha-exec-hdr">Ficha Cadastral</div>
+      <div class="ficha-grid">
+        <div class="ficha-cell"><label>Razão Social</label><div class="val">${safe(e.razao_social)}</div></div>
+        <div class="ficha-cell"><label>CNPJ</label><div class="val">${safe(e.cnpj)}</div></div>
+        <div class="ficha-cell"><label>Fundação</label><div class="val">${safe(e.fundacao)} (${e.anos_mercado} anos)</div></div>
+        <div class="ficha-cell"><label>Decisor Principal</label><div class="val accent">${lnk(dec.linkedin, dec.nome)}</div></div>
+        <div class="ficha-cell"><label>Sócio(s)</label><div class="val">${soc.filter(s=>!s.decisor).map(s=>s.nome).join(', ')||'—'}</div></div>
+        <div class="ficha-cell"><label>Porte / Capital</label><div class="val">${safe(e.porte)} · ${safe(e.capital_social)}</div></div>
+        <div class="ficha-cell"><label>Endereço</label><div class="val">${safe(e.endereco)}</div></div>
+        <div class="ficha-cell"><label>Telefone</label><div class="val">${safe(e.telefone)}${e.telefone_0800?' · '+e.telefone_0800:''}</div></div>
+        <div class="ficha-cell"><label>Site</label><div class="val accent">${lnk(e.site,e.site)}</div></div>
+      </div>
+    </div>`;
+  }
+
+  // ── PERFIL ───────────────────────────────────────────────────────────────
+  function perfil() {
+    const e = D.empresa;
+    const prods = D.produtos || [];
+    const tl    = D.linha_do_tempo || [];
+    const clts  = D.clientes_identificados || [];
+    return `
+    <div class="section">
+      <div class="section-hdr">
+        <img class="agent-avatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Marcos" alt="">
+        <div><div class="section-title">Perfil Completo da Empresa</div><div class="section-sub">Dados do site + pesquisa externa + histórico</div></div>
+        <span class="agent-tag tag-marcos">Marcos Vieira</span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th colspan="2">Identidade e Posicionamento</th></tr>
+          ${e.missao?`<tr><td><strong>Missão</strong></td><td>${e.missao}</td></tr>`:''}
+          ${e.visao?`<tr><td><strong>Visão</strong></td><td>${e.visao}</td></tr>`:''}
+          ${e.proposta_valor?`<tr><td><strong>Proposta de valor</strong></td><td>${e.proposta_valor}</td></tr>`:''}
+          <tr><td><strong>Segmento</strong></td><td>${safe(e.segmento)}</td></tr>
+          <tr><td><strong>Clientes</strong></td><td>${safe(e.num_clientes)}</td></tr>
+          <tr><td><strong>Blog</strong></td><td>${e.blog_ativo?'<span class="pill pill-green">Ativo</span>':'<span class="pill pill-red">Abandonado</span>'}${e.ultimo_post_blog?' · Último post: '+e.ultimo_post_blog:''}</td></tr>
+          ${e.nota_imprensa?`<tr><td><strong>Imprensa</strong></td><td>${e.nota_imprensa}</td></tr>`:''}
+        </table>
+      </div>
+
+      ${tl.length?`
+      <div class="inner-card" style="margin-bottom:14px">
+        <div class="sec-title-sm">Linha do Tempo</div>
+        <div class="timeline">${tl.map(t=>`<div class="tl-item"><div class="tl-year">${t.ano}</div><div class="tl-text">${t.evento}</div></div>`).join('')}</div>
+      </div>`:''}
+
+      ${prods.length?`
+      <div class="table-wrap">
+        <table>
+          <tr><th>Produto / Linha</th><th>Descrição</th><th>Versões</th></tr>
+          ${prods.map(p=>`<tr><td><strong>${p.nome}</strong></td><td>${p.descricao}</td><td>${p.versoes.length?p.versoes.map(v=>`<span class="pill pill-blue" style="font-size:11px">${v}</span>`).join(' '):'—'}</td></tr>`).join('')}
+        </table>
+      </div>`:''}
+
+      ${clts.length?`
+      <div class="table-wrap">
+        <table>
+          <tr><th colspan="2">Clientes Identificados</th></tr>
+          <tr><td><strong>Base</strong></td><td>${clts.join(', ')} e outros</td></tr>
+          <tr><td><strong>Depoimentos publicados</strong></td><td><span class="pill pill-red">Nenhum</span></td></tr>
+        </table>
+      </div>`:''}
+    </div>`;
+  }
+
+  // ── PESQUISA EXTERNA ─────────────────────────────────────────────────────
+  function pesquisa() {
+    const e  = D.empresa;
+    const s  = D.socios || [];
+    const rs = D.redes_sociais || [];
+    const rp = D.reputacao || {};
+    return `
+    <div class="section">
+      <div class="section-hdr">
+        <img class="agent-avatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Camila" alt="">
+        <div><div class="section-title">Pesquisa Externa</div><div class="section-sub">CNPJ · Sócios · LinkedIn · Redes Sociais · Reputação</div></div>
+        <span class="agent-tag tag-camila">Camila Rocha</span>
+      </div>
+
+      <div class="two-col">
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <tr><th colspan="2">Dados Fiscais</th></tr>
+            <tr><td><strong>CNPJ</strong></td><td>${safe(e.cnpj)}</td></tr>
+            <tr><td><strong>Situação</strong></td><td><span class="pill pill-green">${safe(e.situacao_receita)}</span></td></tr>
+            <tr><td><strong>Porte</strong></td><td>${safe(e.porte)}</td></tr>
+            <tr><td><strong>Capital Social</strong></td><td>${safe(e.capital_social)}</td></tr>
+            <tr><td><strong>CNAE</strong></td><td>${safe(e.cnae)}</td></tr>
+            ${e.email_fiscal?`<tr><td><strong>Email fiscal</strong></td><td>${e.email_fiscal}</td></tr>`:''}
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-bottom:0">
+          <table>
+            <tr><th colspan="2">Quadro Societário</th></tr>
+            ${s.map(sc=>`<tr><td><strong>${sc.nome}</strong></td><td>${sc.qualificacao}<br><span class="note">Desde ${sc.desde}${sc.linkedin?` · <a href="${sc.linkedin}" target="_blank">LinkedIn ↗</a>`:''}</span></td></tr>`).join('')}
+          </table>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <tr><th>Plataforma</th><th>Handle</th><th>Alcance</th><th>Status</th></tr>
+          ${rs.map(r=>`<tr>
+            <td><strong>${r.plataforma}</strong></td>
+            <td><a href="${r.url}" target="_blank">${r.handle} ↗</a></td>
+            <td>${r.seguidores?r.seguidores+' seguidores'+(r.posts?' · '+r.posts+' posts':''):'—'}</td>
+            <td><span class="pill ${r.status==='Ativo'?'pill-green':r.status==='Existe'?'pill-yellow':'pill-red'}">${r.status}</span></td>
+          </tr>`).join('')}
+          <tr>
+            <td><strong>Reclame Aqui</strong></td>
+            <td>—</td>
+            <td>${rp.reclame_aqui_reclamacoes||'—'} reclamações</td>
+            <td><span class="pill pill-green">${rp.reclame_aqui_status||'—'}</span></td>
+          </tr>
+        </table>
+      </div>
+    </div>`;
+  }
+
+  // ── MERCADO ──────────────────────────────────────────────────────────────
+  function mercado() {
+    const m = D.mercado;
+    if (!m) return '';
+    return `
+    <div class="section">
+      <div class="section-hdr">
+        <img class="agent-avatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Gustavo" alt="">
+        <div><div class="section-title">Estratégia de Mercado</div><div class="section-sub">Posicionamento · Ameaças · Oportunidades · Janela estratégica</div></div>
+        <span class="agent-tag tag-market">Análise de Mercado</span>
+      </div>
+
+      <div class="strategy-box">
+        <h4>Posicionamento Atual no Mercado</h4>
+        <p>${m.posicionamento}</p>
+      </div>
+
+      <div class="market-2col">
+        <div class="oport-card market-card">
+          <div class="market-card-title" style="color:var(--green)">✦ Oportunidades</div>
+          <ul>${m.oportunidades.map(o=>`<li><strong>${o.titulo}</strong><span class="note">${o.descricao}</span></li>`).join('')}</ul>
+        </div>
+        <div class="threat-card market-card">
+          <div class="market-card-title" style="color:var(--red)">✦ Ameaças</div>
+          <ul>${m.ameacas.map(a=>`<li><strong>${a.titulo}</strong><span class="note">${a.descricao}</span></li>`).join('')}</ul>
+        </div>
+      </div>
+
+      ${m.score_competitivo&&m.score_competitivo.length?`
+      <div class="inner-card" style="margin-bottom:14px">
+        <div class="sec-title-sm">Score Competitivo</div>
+        ${m.score_competitivo.map(sc=>`
+        <div class="prog-wrap">
+          <div class="prog-label"><span>${sc.dimensao}</span><span>${sc.score}/10</span></div>
+          <div class="prog-track"><div class="${sc.score<=4?'prog-fill prog-fill-warn':'prog-fill'}" style="width:${sc.score*10}%"></div></div>
+        </div>`).join('')}
+      </div>`:''}
+
+      <div class="strategy-box">
+        <h4>Janela Estratégica — Por que agir agora</h4>
+        <p>${m.janela_estrategica}</p>
+      </div>
+    </div>`;
+  }
+
+  // ── BANT + SCORE ─────────────────────────────────────────────────────────
+  function bant() {
+    const b = D.bant; const sf = D.score_fit;
+    const bantMap = [
+      { key:'budget', letter:'B', name:'Budget · Orçamento' },
+      { key:'authority', letter:'A', name:'Authority · Autoridade' },
+      { key:'need', letter:'N', name:'Need · Necessidade' },
+      { key:'timeline', letter:'T', name:'Timeline · Urgência' }
+    ];
+    return `
+    <div class="section">
+      <div class="section-hdr">
+        <img class="agent-avatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Bruno" alt="">
+        <div><div class="section-title">Análise BANT + Score de Fit</div><div class="section-sub">Qualificação baseada em evidências concretas</div></div>
+        <span class="agent-tag tag-bruno">Bruno Tavares</span>
+      </div>
+
+      <div class="bant-grid">
+        ${bantMap.map(({key,letter,name})=>`
+        <div class="bant-card">
+          <div class="bant-letter">${letter}</div>
+          <div class="bant-name">${name}</div>
+          <div class="bant-class c-${b[key].cor}">${b[key].classificacao}</div>
+          <div class="bant-why">${b[key].justificativa}</div>
+        </div>`).join('')}
+      </div>
+
+      <div class="score-breakdown">
+        <div style="padding:12px 20px;background:var(--surface2);border-bottom:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)">Score de Fit — Imersão Software House 10x</div>
+        ${sf.criterios.map(c=>`
+        <div class="score-row">
+          <div class="sc-crit">
+            <div class="title">${c.criterio}</div>
+            <div class="ev">${c.evidencia}</div>
+          </div>
+          <div class="sc-dots">${Array.from({length:c.max},(_,i)=>`<div class="dot${i<c.nota?' on':''}"></div>`).join('')}</div>
+          <div class="sc-val">${c.nota}/${c.max}</div>
+        </div>`).join('')}
+        <div class="score-row total">
+          <div class="sc-crit"><div class="title" style="font-size:15px;font-weight:700">Score Total</div></div>
+          <div style="display:flex;align-items:center;gap:14px;margin-left:auto">
+            <span style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--accent)">${sf.total}/${sf.max}</span>
+            <span class="pill pill-${sf.classificacao==='Quente'?'green':sf.classificacao==='Morno'?'yellow':'red'}" style="font-size:13px;padding:5px 14px">● Prospect ${sf.classificacao}</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:22px">
+        <div class="sec-title-sm">Mapa de Dores Prováveis</div>
+        ${D.dores.map((d,i)=>`
+        <div class="dor-card">
+          <div class="dor-num">${i+1}</div>
+          <div><div class="dor-title">${d.titulo}</div><div class="dor-ev">${d.evidencia}</div></div>
+          <div class="dor-inner">"${d.dor_interna}"</div>
+        </div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  // ── ESTRATÉGIA ───────────────────────────────────────────────────────────
+  function estrategia() {
+    const est = D.estrategia; const sp = est.spin; const fe = est.ficha_executiva;
+    const spinSec = [
+      { key:'situacao', cls:'s', label:'S — Situação' },
+      { key:'problema', cls:'p', label:'P — Problema' },
+      { key:'implicacao', cls:'i', label:'I — Implicação' },
+      { key:'need_payoff', cls:'n', label:'N — Need-Payoff' }
+    ];
+    return `
+    <div class="section">
+      <div class="section-hdr">
+        <img class="agent-avatar" src="https://api.dicebear.com/9.x/adventurer/svg?seed=Fernanda" alt="">
+        <div><div class="section-title">Estratégia Comercial</div><div class="section-sub">SPIN · Scripts · Objeções · Ficha executiva</div></div>
+        <span class="agent-tag tag-fernanda">Fernanda Lima</span>
+      </div>
+
+      <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Análise SPIN Personalizada</div>
+      ${spinSec.map(sec=>`
+        <div class="spin-label sl-${sec.cls}"><span class="spin-dot sd-${sec.cls}"></span>${sec.label}</div>
+        ${(sp[sec.key]||[]).map(q=>`<div class="spin-q sq-${sec.cls}">${q}</div>`).join('')}
+      `).join('')}
+
+      <div class="sec-title-sm" style="margin-top:28px;margin-bottom:14px">Scripts de Abordagem</div>
+
+      <div class="script-box">
+        <div class="script-label">WhatsApp — 1º Contato</div>
+        ${est.script_whatsapp.map(p=>`<p${p.startsWith('[')?' class="pause"':''}>${p}</p>`).join('')}
+      </div>
+      <div class="script-box">
+        <div class="script-label">Ligação — 60 Segundos</div>
+        ${est.script_ligacao.map(p=>`<p${p.startsWith('[')?' class="pause"':''}>${p}</p>`).join('')}
+      </div>
+
+      <div class="sec-title-sm" style="margin-top:28px;margin-bottom:14px">Objeções Prováveis e Respostas</div>
+      ${est.objecoes.map(o=>`
+      <div class="obj-card">
+        <div class="obj-title">✦ "${o.objecao}"</div>
+        <div class="obj-why">${o.por_que}</div>
+        <div class="obj-resp">"${o.resposta}"</div>
+      </div>`).join('')}
+
+      <div class="sec-title-sm" style="margin-top:28px;margin-bottom:14px">Ficha Executiva — Use antes de ligar</div>
+      <div class="ff-wrap">
+        <div class="ff-head">
+          <h3>${D.empresa.nome.toUpperCase()} — Dossiê Comercial</h3>
+          <p>Score Fit: ${D.score_fit.total}/${D.score_fit.max} · BANT: ${D.bant.score_favoraveis}/4 favoráveis · Prospect ${D.score_fit.classificacao} · Gerado em ${D.meta.gerado_em}</p>
+        </div>
+        <div class="ff-body">
+          <div class="ff-row">
+            <div class="ff-item"><label>Decisor Principal</label><div class="val">${D.decisor.nome}</div></div>
+            <div class="ff-item"><label>LinkedIn</label><div class="val">${lnk(D.decisor.linkedin,D.decisor.linkedin)}</div></div>
+            <div class="ff-item"><label>Telefone</label><div class="val">${safe(D.decisor.telefone)}</div></div>
+          </div>
+          <div class="ff-situation"><strong style="color:#fff">Situação em 1 linha:</strong> ${D.empresa.resumo}</div>
+          <div style="margin-bottom:16px">
+            <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Dores Prioritárias</div>
+            ${fe.dores_prioritarias.map(d=>pill(d.label,d.tipo)).join(' ')}
+          </div>
+          <div class="ff-arg"><strong>Argumento Principal</strong>${fe.argumento_principal}</div>
+          <div class="ff-sep"></div>
+          <div class="ff-row">
+            <div class="ff-item"><label>Canal Recomendado</label><div class="val">${fe.canal_recomendado}</div></div>
+            <div class="ff-item"><label>Melhor Horário</label><div class="val">${fe.melhor_horario}</div></div>
+            <div class="ff-item"><label>Urgência</label><div class="val" style="color:var(--accent4)">${fe.urgencia}</div></div>
+          </div>
+          <div class="ff-alert"><strong>⚠ Atenção:</strong> ${fe.atencao}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── FOOTER ───────────────────────────────────────────────────────────────
+  function footer() {
+    return `<div class="footer">
+      Dossiê gerado pela Squad <strong>${D.meta.squad}</strong> · Software House Exponencial · ${D.meta.gerado_em}<br>
+      Pipeline: Marcos Vieira (Rastreamento) · Camila Rocha (Pesquisa Externa) · Bruno Tavares (BANT + Score) · Fernanda Lima (Estratégia Comercial)
+    </div>`;
+  }
+
+  // ── RENDER ───────────────────────────────────────────────────────────────
+  document.title = `Dossiê — ${D.empresa.nome}`;
+  document.getElementById('app').innerHTML =
+    header() +
+    classifBanner() +
+    fichaExec() +
+    `<div class="container">` +
+    perfil() +
+    pesquisa() +
+    mercado() +
+    bant() +
+    estrategia() +
+    `</div>` +
+    footer();
+})();
+</script>
+</body>
+</html>

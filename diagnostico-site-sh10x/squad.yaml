@@ -1,0 +1,88 @@
+squad:
+  code: diagnostico-site-sh10x
+  setor: comercial
+  grupo: prospeccao
+  sessao: diagnostico-site
+  name: Dossiê Completo de Prospect — Imersão 10x
+  description: |
+    Raspa site do prospect, pesquisa externamente (CNPJ, sócios, LinkedIn, redes) e gera dossiê
+    comercial completo com SPIN e script personalizado. Classifica automaticamente o tipo de SH
+    e roteia para o produto correto:
+    - ERP Próprio → Imersão Software House 10x
+    - Fábrica de Software → ExponencIA
+    Sweet spot: faturamento R$51k–R$350k/mês. Clientes SP/Guarulhos têm bônus de proximidade.
+  icon: magnifying-glass
+  version: "1.0.0"
+
+  company: "_expxagents/_memory/company.md"
+  preferences: "_expxagents/_memory/preferences.md"
+  memory: "_memory/memories.md"
+
+  target_audience: Donos e decisores de software houses ERP
+  platform: interno
+  format: dossie-prospect
+
+  schedule:
+    enabled: false
+
+  skills:
+    - web_search
+    - web_fetch
+
+  data:
+    - id: url_site
+      label: "URL do site do prospect"
+      type: text
+      required: true
+      placeholder: "https://www.empresa.com.br"
+
+  agents:
+    - id: rastreador
+      name: "Marcos Vieira"
+      icon: spider-web
+      avatar: "https://api.dicebear.com/9.x/adventurer/svg?seed=Marcos"
+      prompt: agents/rastreador.md
+
+    - id: pesquisador
+      name: "Camila Rocha"
+      icon: magnifying-glass
+      avatar: "https://api.dicebear.com/9.x/adventurer/svg?seed=Camila"
+      prompt: agents/pesquisador.md
+
+    - id: analista
+      name: "Bruno Tavares"
+      icon: chart-bar
+      avatar: "https://api.dicebear.com/9.x/adventurer/svg?seed=Bruno"
+      prompt: agents/analista.md
+
+    - id: estrategista
+      name: "Fernanda Lima"
+      icon: bullseye-arrow
+      avatar: "https://api.dicebear.com/9.x/adventurer/svg?seed=Fernanda"
+      prompt: agents/estrategista.md
+
+  pipeline:
+    steps:
+      - id: step-01
+        agent: rastreador
+        label: "Raspar site — home, sobre, produtos, equipe, depoimentos, contato"
+        execution: inline
+
+      - id: step-02
+        agent: pesquisador
+        label: "Pesquisa externa — CNPJ, sócios, LinkedIn, redes sociais, avaliações"
+        deliverFrom: rastreador
+        execution: inline
+
+      - id: step-03
+        agent: analista
+        label: "Análise — perfil consolidado, BANT, score de fit, mapa de dores"
+        deliverFrom: pesquisador
+        execution: inline
+
+      - id: step-04
+        agent: estrategista
+        label: "Dossiê final — SPIN, script WhatsApp, script ligação, objeções, estratégia"
+        deliverFrom: analista
+        execution: inline
+        produces_format: true
